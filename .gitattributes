@@ -1,0 +1,3 @@
+uv.lock text eol=lf
+*.json text eol=lf
+tests/fixtures/*.html -text

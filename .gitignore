@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.env/
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data files
+data/
+*.csv
+*.tsv
+*.xlsx
+
+# Logs
+*.log
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+.venv/
+
+# 作業記録と Claude Code 用の指示（手元にだけ置く）
+tasks/
+CLAUDE.md
