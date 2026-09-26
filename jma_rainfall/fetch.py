@@ -73,6 +73,7 @@ class Pacer:
 
     1回ごとに interval 秒あけ、rest_every 回ごとに rest_sec 秒休む。
     失敗が max_consecutive_fail 回続いたら FetchAborted で打ち切る（再試行で叩き続けない）。
+    1つのスレッドから順に呼ぶ前提で、並行取得には対応しない（並行化するとアクセスの頻度が上がり、この歩調の意味がなくなる）。
     """
 
     def __init__(self, interval=DEFAULT_INTERVAL, rest_every=200, rest_sec=60, max_consecutive_fail=3, sleep=time.sleep):
