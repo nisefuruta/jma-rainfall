@@ -83,6 +83,14 @@ def test_parse_annual_a5():
     assert row["N時間降水量/最大3時間降水量/降水量(mm)"] == "131.0"
 
 
+def test_parse_annual_max_columns():
+    # 年の合計・最大（view=""）。見出しの形は種別で違う（官署は単位が上の段、アメダスは下の段）
+    s = parse_annual(soup("annually_47682.html"))
+    a = parse_annual(soup("annually_0376.html"))
+    assert s[s["年"] == "2013"].iloc[0][["降水量(mm)/最大/1時間", "降水量(mm)/最大/10分間"]].tolist() == ["61.5", "19.5"]
+    assert a[a["年"] == "2013"].iloc[0][["降水量/最大/1時間(mm)", "降水量/最大/10分間(mm)"]].tolist() == ["48.5", "19.0"]
+
+
 def test_parse_rank():
     df = parse_rank(soup("rank_47682.html"))
     row = df[df["要素"] == "日降水量 (mm)"].iloc[0]
